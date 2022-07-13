@@ -21,9 +21,6 @@ PROCESSO1='atlassian/jira'
 jira_status=`ps ax | grep $PROCESSO1 | grep -v grep| wc -l`
 #echo "${jira_status}"
 
-DTHR=`date +%F-%T`
-echo $DTHR
-
 if [ $jira_status -eq 0 ]
 then
 	# SE O NUMERO DO PROCESSO FOR 0(ZERO), INICIA O SERVICO
