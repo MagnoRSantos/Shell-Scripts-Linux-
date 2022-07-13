@@ -4,7 +4,7 @@
 ###Adicionar no crontab a chamada do script
 ##roda a cada 6 minutos
 #verifica servico jira_confluence
-#*/6 * * * * /home/svcadmin/verifica_status/verifica_service.sh
+#*/6 * * * * /home/magno/verifica_status/verifica_service.sh
 
 
 #Remove logs acima de 10 dias
