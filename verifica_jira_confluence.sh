@@ -1,5 +1,6 @@
 #!/bin/bash
 
+##Fonte: https://tidahora.com.br/shell-script-para-monitorar-algum-processo-ou-servico-no-linux/
 
 ###Adicionar no crontab a chamada do script
 ##roda a cada 6 minutos
