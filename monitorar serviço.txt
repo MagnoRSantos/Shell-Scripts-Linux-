@@ -1,0 +1,26 @@
+https://tidahora.com.br/shell-script-para-monitorar-algum-processo-ou-servico-no-linux/
+
+#!/bin/sh
+##############################################################
+## SHELL SCRIPT PARA MONITORAR PROCESSO OU SERVICO NO LINUX ##
+##############################################################
+
+# Defina o nome do processo abaixo
+PROCESSO=cups
+
+# Intervalo em segundos da verificacao
+INTERVALO=10
+ 
+while true; do
+      # NUMERO DE VEZES QUE O PROCESSO ESTA RODANDO #
+      OCORRENCIAS=`ps ax | grep $PROCESSO | grep -v grep| wc -l`
+      if [ $OCORRENCIAS -eq 0 ]; then
+                 # SE O NUMERO DO PROCESSO E 0, EXECUTE NOVAMENTE
+                 # REINICIA O SERVICO E ENVIA O LOG PARA O EMAIL DO SYSADMIN
+                 /etc/init.d/cups restart
+                 tail -n 20 /var/log/cups/error_log |mail -s "Alerta! O processo $PROCESSO foi reiniciado" johnny@tidahora.com.br
+       fi
+       # AGUARDANDO O INTERVALO DE TEMPO PARA EXECUTAR DE NOVO
+        sleep $INTERVALO
+done
+# Fim do Script
