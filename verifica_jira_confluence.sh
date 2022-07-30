@@ -5,11 +5,11 @@
 ###Adicionar no crontab a chamada do script
 ##roda a cada 6 minutos
 #verifica servico jira_confluence
-#*/6 * * * * /home/magno/verifica_status/verifica_service.sh
+#*/6 * * * * /home/magno/verifica_status/verifica_jira_confluence.sh
 
 
 #Remove logs acima de 10 dias
-#find /home/magnosantos/log_jira/log/log_service_jira_confluence_*.log -type f -mtime +10 -delete
+#find /home/magno/verifica_status/log/log_service_jira_confluence_*.log -type f -mtime +10 -delete
 find /home/magno/verifica_status/log/*.log -type f -mtime +10 -delete
 
 ##Gera somente um arquivo de log e adiciona log sem apagar anterior
